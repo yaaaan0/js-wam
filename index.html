@@ -1,346 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="./all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-    <style>
-      html,
-      body {
-        background: rgb(204, 106, 76);
-        font-family: "Changa", sans-serif;
-        cursor: url(./images/cursor2.png) 0 0, auto;
-      }
+  <link rel="stylesheet" href="./all.min.css" />
+
+  <style>
+    html,
+    body {
+      background: rgb(204, 106, 76);
+      font-family: "Changa", sans-serif;
+      cursor: url(./images/cursor2.png) 0 0, auto;
+    }
+
+    body {
+      height: 100vh;
+    }
 
 
-      #box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 50px;
-      }
+    #box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
 
-      #container {
-        width: 900px;
-        height: 700px;
-        background-color: wheat;
-        border-radius: 20px;
-        /* margin: auto; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 5px 5px 25px 2px rgba(0, 0, 0, 0.2);
-      }
+    #container {
+      width: 900px;
+      height: 700px;
+      background-color: wheat;
+      border-radius: 20px;
+      /* margin: auto; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 5px 5px 25px 2px rgba(0, 0, 0, 0.2);
+    }
 
-      #box_game {
-        width: 800px;
-        height: 500px;
-        border-radius: 20px;
-        background-color: rgb(245, 244, 241);
-        box-shadow: 1px 1px 25px 1px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+    #box_game {
+      width: 800px;
+      height: 500px;
+      border-radius: 20px;
+      background-color: rgb(245, 244, 241);
+      box-shadow: 1px 1px 25px 1px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-      #game {
-        border-spacing: 25px;
+    #game {
+      border-spacing: 25px;
 
-        border-spacing: 17px;
-      }
+      border-spacing: 17px;
+    }
 
-      #game td {
-        width: 60px;
-        height: 60px;
-        padding: 2px;
-        border-radius: 50%;
-        /* background: rgba(204, 95, 62, 0.2); */
-        box-shadow: 0px 5px 10px 2px rgba(204, 117, 90, 0.2) inset;
-        animation: bounceIn;
-        animation-duration: 2.5s;
-      }
+    #game td {
+      width: 60px;
+      height: 60px;
+      padding: 2px;
+      border-radius: 50%;
+      /* background: rgba(204, 95, 62, 0.2); */
+      box-shadow: 0px 5px 10px 2px rgba(204, 117, 90, 0.2) inset;
+      animation: bounceIn;
+      animation-duration: 2.5s;
+    }
 
-      #box_btns {
-        width: 800px;
-        height: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        /* background-color: rgb(238, 213, 136); */
-      }
+    #box_btns {
+      width: 800px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      /* background-color: rgb(238, 213, 136); */
+    }
 
-      #btn-start {
+    #btn-start {
+      width: 300px;
+      background: rgba(204, 106, 76, 0.8);
+      /* border-radius: 10px; */
+      border: none;
+      color: #ffffff;
+      font-size: 10px;
+      font-family: "Changa", sans-serif;
+      letter-spacing: 2px;
+      padding: 4px 50px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    #times {
+      width: 300px;
+      height: 30px;
+      /* border-radius: 10px; */
+      position: absolute;
+    }
+
+    #score {
+      display: block;
+      position: relative;
+    }
+
+    .yellow {
+      background: rgba(235, 151, 41, 0.8);
+    }
+
+    .red {
+      background: rgba(231, 91, 91, 0.8);
+    }
+
+    .animation {
+      animation: animation 5s linear forwards;
+      background: rgba(8, 5, 0, 0.9);
+      display: inline-block;
+    }
+
+    @keyframes animation {
+      0% {
         width: 300px;
-        background: rgba(204, 106, 76, 0.8);
-        /* border-radius: 10px; */
-        border: none;
-        color: #ffffff;
-        font-size: 10px;
-        font-family: "Changa", sans-serif;
-        letter-spacing: 2px;
-        padding: 4px 50px;
-        position: absolute;
-        z-index: 1;
       }
 
-      #times {
-        width: 300px;
-        height: 30px;
-        /* border-radius: 10px; */
-        position: absolute;
+      100% {
+        width: 0px;
       }
+    }
 
-      #score {
-        display: block;
-        position: relative;
-      }
+    #a {
+      width: 35%;
+      padding-left: 20px;
+    }
 
-      .yellow {
-        background: rgba(235, 151, 41, 0.8);
-      }
-      .red {
-        background: rgba(231, 91, 91, 0.8);
-      }
+    #b {
+      width: 80%;
+    }
 
-      .animation {
-        animation: animation 5s linear forwards;
-        background: rgba(8, 5, 0, 0.9);
-        display: inline-block;
-      }
+    .circle {
+      width: 15px;
+      height: 15px;
+      background-color: tomato;
+      border-top-right-radius: 50px;
+      border-top-left-radius: 45px;
+      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 45px;
+      /* border-radius: 50%; */
+    }
 
-      @keyframes animation {
-        0% {
-          width: 300px;
-        }
+    #text-score {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
 
-        100% {
-          width: 0px;
-        }
-      }
+    #text-score-pc {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
 
-      #a {
-        width: 35%;
-        padding-left: 20px;
-      }
-      #b {
-        width: 80%;
-      }
-      .circle {
-        width: 15px;
-        height: 15px;
-        background-color: tomato;
-        border-top-right-radius: 50px;
-        border-top-left-radius: 45px;
-        border-bottom-right-radius: 40px;
-        border-bottom-left-radius: 45px;
-        /* border-radius: 50%; */
-      }
+    #box_right {
+      width: 200px;
+      height: 700px;
+      /* background-color: rgb(185, 157, 105); */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-      #text-score {
-        font-size: 20px;
-        letter-spacing: 3px;
-      }
+    .max {
+      width: 300px;
+      height: 200px;
+      /* box-shadow: 0px 5px 10px 2px rgba(194, 71, 22, 0.2); */
+      box-shadow: 5px 5px 25px 2px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      background-color: wheat;
 
-      #text-score-pc {
-        font-size: 20px;
-        letter-spacing: 3px;
-      }
+      position: absolute;
+      left: 20px;
+      top: 0px;
+      z-index: 99999;
 
-      #box_right {
-        width: 200px;
-        height: 700px;
-        /* background-color: rgb(185, 157, 105); */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
+      background: url(./images/giphy.gif) repeat wheat;
+    }
 
-      .max {
-        width: 300px;
-        height: 200px;
-        /* box-shadow: 0px 5px 10px 2px rgba(194, 71, 22, 0.2); */
-        box-shadow: 5px 5px 25px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        background-color: wheat;
+    .max p {
+      position: absolute;
+      left: 110px;
+      top: 45px;
 
-        position: absolute;
-        left: 20px;
-        top: 0px;
-        z-index: 99999;
+      color: rgb(214, 79, 38);
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
 
-        background: url(./images/giphy.gif) repeat  wheat ;
-      }
+    .game_ins {
+      width: 300px;
+      height: 480px;
+      background-color: wheat;
+      border-radius: 20px;
+      box-shadow: 5px 5px 25px 2px rgba(0, 0, 0, 0.2);
 
-      .max p {
-        position: absolute;
-        left: 110px;
-        top: 45px;
 
-        color: rgb(214, 79, 38);
-        letter-spacing: 3px;
-        font-weight: bold;
-      }
+      position: absolute;
+      left: 20px;
+      top: 220px;
 
-      .game_ins {
-        width: 300px;
-        height: 480px;
-        background-color: wheat;
-        border-radius: 20px;
-        box-shadow: 5px 5px 25px 2px rgba(0, 0, 0, 0.2);
-       
+      text-align: center;
+    }
 
-        position: absolute;
-        left: 20px;
-        top: 220px;
+    .game_ins p {
+      font-weight: bold;
+      color: rgb(206, 86, 39);
 
-        text-align: center;
-      }
-      .game_ins p {
-        font-weight: bold;
-        color: rgb(206, 86, 39);
+      position: absolute;
+      top: 50px;
+      left: 65px;
+    }
 
-        position: absolute;
-        top: 50px;
-        left: 65px;
-      }
+    .pic {
+      background-image: url(./images/giphy.gif);
+    }
+  </style>
+</head>
 
-      .pic{
-        background-image: url(./images/giphy.gif);
-      }
-    </style>
-  </head>
-  <body>
-    <div id="box">
-      <div id="container">
-        <div id="box_game">
-          <table id="game">
+<body>
+  <div id="box">
+    <div id="container">
+      <div id="box_game">
+        <table id="game">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div id="box_btns">
+        <div id="a">
+          <br />
+          <table border="0">
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+                <div class="circle" style="
+                      background-color: rgba(231, 91, 91);
+                      color: rgba(231, 91, 91);
+                    "></div>
+              </td>
+              <td>
+                <b style="color: rgba(231, 91, 91); letter-spacing: 5px">SCORE:<span id="text-score">0</span></b>
+              </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+                <div class="circle" style="background-color: rgba(235, 151, 41, 0.8)"></div>
+              </td>
+              <td>
+                <b style="color: rgba(235, 151, 41, 0.8); letter-spacing: 5px">
+                  PC_SCORE: <span id="text-score-pc">0</span></b>
+              </td>
             </tr>
           </table>
         </div>
-        <div id="box_btns">
-          <div id="a">
-            <br />
-            <table border="0">
-              <tr>
-                <td>
-                  <div
-                    class="circle"
-                    style="
-                      background-color: rgba(231, 91, 91);
-                      color: rgba(231, 91, 91);
-                    "
-                  ></div>
-                </td>
-                <td>
-                  <b style="color: rgba(231, 91, 91); letter-spacing: 5px"
-                    >SCORE:<span id="text-score">0</span></b
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div
-                    class="circle"
-                    style="background-color: rgba(235, 151, 41, 0.8)"
-                  ></div>
-                </td>
-                <td>
-                  <b
-                    style="color: rgba(235, 151, 41, 0.8); letter-spacing: 5px"
-                  >
-                    PC_SCORE: <span id="text-score-pc">0</span></b
-                  >
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div id="b">
-            <input type="button" value="START" id="btn-start" />
-            <div id="times"></div>
-          </div>
+        <div id="b">
+          <input type="button" value="START" id="btn-start" />
+          <div id="times"></div>
         </div>
       </div>
-      <div id="box_right">
-        <div class="max">
-          <p>
-            最高紀錄
-            <br />
-            玩家: <span id="text-highplayer"></span>
-            <br />
-            分數: <span id="text-highscore"></span>
-          </p>
-        </div>
-        <div class="game_ins">
-          <p ">
+    </div>
+    <div id="box_right">
+      <div class="max">
+        <p>
+          最高紀錄
+          <br />
+          玩家: <span id="text-highplayer"></span>
+          <br />
+          分數: <span id="text-highscore"></span>
+        </p>
+      </div>
+      <div class="game_ins">
+        <p ">
             遊戲說明 <br />
             GAME INSTRUCTIONS <br />
             <br />
 
             <span
-            class="circle"
-            style="
+            class=" circle" style="
               background-color: rgba(231, 91, 91);
               color: cornsilk;
               width: 50px;
@@ -348,13 +337,10 @@
               text-align: center;
               line-height: 50px;
               display: inline-block;
-            "
-            >玩家
+            ">玩家
           </span>
 
-            <span
-              class="circle"
-              style="
+          <span class="circle" style="
                 background-color: rgba(235, 151, 41, 0.8);
                 color: cornsilk;
                 width: 50px;
@@ -362,199 +348,199 @@
                 text-align: center;
                 line-height: 50px;
                 display: inline-block;
-              "
-              >電腦
-            </span>
+              ">電腦
+          </span>
 
-            <br /><br />
-            在遊戲時間內，<br />哪一方佔領的區域越多，<br />則獲得勝利!!!<br />
-          </p>
-        </div>
-      <img src="./images/pic.png" alt="">
+          <br /><br />
+          在遊戲時間內，<br />哪一方佔領的區域越多，<br />則獲得勝利!!!<br />
+        </p>
       </div>
+      <img src="./images/pic.png" alt="">
     </div>
+  </div>
 
-    <script>
-      const btnStart = document.getElementById("btn-start");
-      const times = document.getElementById("times");
-      const holes = document.querySelectorAll("#game td");
-      const textScore = document.getElementById("text-score");
-      const textScorePC = document.getElementById("text-score-pc");
-      const textHighPlayer = document.getElementById("text-highplayer");
-      const textHighScore = document.getElementById("text-highscore");
+  <script>
+    const btnStart = document.getElementById("btn-start");
+    const times = document.getElementById("times");
+    const holes = document.querySelectorAll("#game td");
+    const textScore = document.getElementById("text-score");
+    const textScorePC = document.getElementById("text-score-pc");
+    const textHighPlayer = document.getElementById("text-highplayer");
+    const textHighScore = document.getElementById("text-highscore");
 
-      const click_S=new Audio();
-      click_S.src='./click_S.mp3'
+    const click_S = new Audio();
+    click_S.src = './click_S.mp3'
 
 
-      let score = 0;
-      let scorePC = 0;
-      let isInGame = false;
-      let timer = 0;
-      let array = [];
+    let score = 0;
+    let scorePC = 0;
+    let isInGame = false;
+    let timer = 0;
+    let array = [];
 
-      let highscore = { name: "", score: 0 };
-      let highscoreStorage = JSON.parse(localStorage.getItem("highscore"));
-      if (highscoreStorage !== null) {
-        highscore = highscoreStorage;
-        textHighPlayer.innerText = highscore.name;
-        textHighScore.innerText = highscore.score;
+    let highscore = { name: "", score: 0 };
+    let highscoreStorage = JSON.parse(localStorage.getItem("highscore"));
+    if (highscoreStorage !== null) {
+      highscore = highscoreStorage;
+      textHighPlayer.innerText = highscore.name;
+      textHighScore.innerText = highscore.score;
+    }
+
+    btnStart.onclick = () => {
+      btnStart.disabled = true;
+      times.classList.add("animation");
+      btnStart.value = sec5();
+
+      isInGame = true;
+
+      score = 0;
+      scorePC = 0;
+      textScore.innerText = score;
+      textScorePC.innerText = scorePC;
+
+      array = [];
+
+      for (let i = 0; i < 30; i++) {
+        const random = Math.floor(Math.random() * 30);
+        if (array.includes(random)) {
+          i--;
+        } else {
+          array.push(random);
+        }
       }
 
-      btnStart.onclick = () => {
-        btnStart.disabled = true;
-        times.classList.add("animation");
-        btnStart.value = sec5();
-     
-        isInGame = true;
+      console.log(array);
 
-        score = 0;
-        scorePC = 0;
-        textScore.innerText = score;
-        textScorePC.innerText = scorePC;
+      for (const hole of holes) {
+        hole.onclick = () => {
+          if (hole.classList.contains("yellow")) {
+            hole.classList.remove("yellow");
+            hole.classList.add("red");
 
-        array = [];
+            click_S.play()
 
-        for (let i = 0; i < 30; i++) {
-          const random = Math.floor(Math.random() * 30);
-          if (array.includes(random)) {
-            i--;
+            score++;
+            scorePC--;
+            textScore.innerText = score;
+          } else if (hole.classList.contains("red")) {
+            score = score;
+            textScore.innerText = score;
           } else {
-            array.push(random);
+            hole.classList.add("red");
+
+            click_S.play()
+
+            score++;
+            textScore.innerText = score;
           }
-        }
+        };
+      }
 
-        console.log(array);
+      timer = setTimeout(end, 5000);
+      setTimeout(text, 5100);
 
-        for (const hole of holes) {
-          hole.onclick = () => {
-            if (hole.classList.contains("yellow")) {
-              hole.classList.remove("yellow");
-              hole.classList.add("red");
+      game();
+      sec5();
+    };
 
-              click_S.play()
+    const sec5 = () => {
+      let sec = 5;
 
-              score++;
-              scorePC--;
-              textScore.innerText = score;
-            } else if (hole.classList.contains("red")) {
-              score = score;
-              textScore.innerText = score;
-            } else {
-              hole.classList.add("red");
-
-              click_S.play()
-
-              score++;
-              textScore.innerText = score;
-            }
-          };
-        }
-
-        timer = setTimeout(end, 5000);
-        setTimeout(text, 5100);
-
-        game();
-        sec5();
-      };
-
-      const sec5 = () => {
-        let sec = 5;
+      btnStart.value = `剩餘時間:${sec}秒`;
+      let timer = setInterval(() => {
+        sec--;
 
         btnStart.value = `剩餘時間:${sec}秒`;
-        let timer = setInterval(() => {
-          sec--;
+
+        if (sec === 0) {
+          clearInterval(timer);
 
           btnStart.value = `剩餘時間:${sec}秒`;
-
-          if (sec === 0) {
-            clearInterval(timer);
-
-            btnStart.value = `剩餘時間:${sec}秒`;
-          }
-        }, 1000);
-      };
-
-      const game = () => {
-        for (let i = 0; i < 17; i++) {
-          (function (i) {
-            setTimeout(function () {
-              holes[array[i]].classList.add("yellow");
-              if (holes[array[i]].classList.contains("yellow")) {
-                scorePC++;
-                textScorePC.innerText = scorePC;
-              }
-              if (
-                (holes[array[i]].classList.contains("red") &&
-                  holes[array[i]].classList.contains("yellow")) ||
-                holes[array[i]].classList.contains("red")
-              ) {
-                scorePC = scorePC - 1;
-                textScorePC.innerText = scorePC;
-              }
-              console.log(holes[array[i]]);
-              console.log(i);
-            }, i * 300);
-          })(i);
-          // console.log(i)
         }
-      };
+      }, 1000);
+    };
 
-      const end = () => {
-        clearInterval(timer);
-        clearTimeout(game);
-        isInGame = false;
+    const game = () => {
+      for (let i = 0; i < 17; i++) {
+        (function (i) {
+          setTimeout(function () {
+            holes[array[i]].classList.add("yellow");
+            if (holes[array[i]].classList.contains("yellow")) {
+              scorePC++;
+              textScorePC.innerText = scorePC;
+            }
+            if (
+              (holes[array[i]].classList.contains("red") &&
+                holes[array[i]].classList.contains("yellow")) ||
+              holes[array[i]].classList.contains("red")
+            ) {
+              scorePC = scorePC - 1;
+              textScorePC.innerText = scorePC;
+            }
+            console.log(holes[array[i]]);
+            console.log(i);
+          }, i * 300);
+        })(i);
+        // console.log(i)
+      }
+    };
 
-        for (const hole of holes) {
-          hole.onclick = () => {
-            event.preventDefault();
-          };
-        }
+    const end = () => {
+      clearInterval(timer);
+      clearTimeout(game);
+      isInGame = false;
 
-        textScorePC.innerText = scorePC;
-        textScore.innerText = score;
+      for (const hole of holes) {
+        hole.onclick = () => {
+          event.preventDefault();
+        };
+      }
 
-        times.classList.remove("animation");
-        btnStart.disabled = false;
-      };
+      textScorePC.innerText = scorePC;
+      textScore.innerText = score;
 
-      const text = () => {
-        clearInterval(timer);
-        clearTimeout(game);
-        isInGame = false;
-        for (const hole of holes) {
+      times.classList.remove("animation");
+      btnStart.disabled = false;
+    };
+
+    const text = () => {
+      clearInterval(timer);
+      clearTimeout(game);
+      isInGame = false;
+      for (const hole of holes) {
+        hole.classList.remove("yellow");
+        hole.classList.remove("red");
+
+        hole.onclick = () => {
           hole.classList.remove("yellow");
           hole.classList.remove("red");
+        };
+      }
 
-          hole.onclick = () => {
-            hole.classList.remove("yellow");
-            hole.classList.remove("red");
-          };
-        }
+      if (
+        score > scorePC &&
+        (highscoreStorage === null || highscore.score < score)
+      ) {
+        alert(`【你贏了】 你的分數是${score}分 電腦的分數是${scorePC}分`);
+        const name = prompt("WOW 得到最高分。請輸入你的名字");
+        highscore.score = score;
+        highscore.name = name || "路人";
+        localStorage.setItem("highscore", JSON.stringify(highscore));
+        textHighPlayer.innerText = highscore.name;
+        textHighScore.innerText = highscore.score;
 
-        if (
-          score > scorePC &&
-          (highscoreStorage === null || highscore.score < score)
-        ) {
-          alert(`【你贏了】 你的分數是${score}分 電腦的分數是${scorePC}分`);
-          const name = prompt("WOW 得到最高分。請輸入你的名字");
-          highscore.score = score;
-          highscore.name = name || "路人";
-          localStorage.setItem("highscore", JSON.stringify(highscore));
-          textHighPlayer.innerText = highscore.name;
-          textHighScore.innerText = highscore.score;
+      } else if (score > scorePC) {
+        alert(`【你贏了】 你的分數是${score}分 電腦的分數是${scorePC}分`);
+      } else if (score == scorePC) {
+        alert(`【平手】 你的分數是${score}分 電腦的分數是${scorePC}分`);
+      } else {
+        alert(`【你輸了】 你的分數是${score}分 電腦的分數是${scorePC}分`);
+      }
 
-        } else if (score > scorePC) {
-          alert(`【你贏了】 你的分數是${score}分 電腦的分數是${scorePC}分`);
-        } else if (score == scorePC) {
-          alert(`【平手】 你的分數是${score}分 電腦的分數是${scorePC}分`);
-        } else {
-          alert(`【你輸了】 你的分數是${score}分 電腦的分數是${scorePC}分`);
-        }
+      btnStart.style.backgroundColor = "rgba(204, 106, 76, 0.8)";
+      btnStart.value = "START";
+    };
+  </script>
+</body>
 
-        btnStart.style.backgroundColor = "rgba(204, 106, 76, 0.8)";
-        btnStart.value = "START";
-      };
-    </script>
-  </body>
 </html>
